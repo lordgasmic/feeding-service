@@ -1,6 +1,6 @@
-package com.lordgasmic.==PACKAGE_NAME==.repository;
+package com.lordgasmic.feedingservice.repository;
 
-import com.lordgasmic.==PACKAGE_NAME==.entity.UserEntity;
+import com.lordgasmic.feedingservice.entity.UserEntity;
 import org.springframework.data.repository.Repository;
 
 public interface LoginRepository extends Repository<UserEntity, String> {

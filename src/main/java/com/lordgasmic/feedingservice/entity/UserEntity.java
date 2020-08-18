@@ -1,4 +1,4 @@
-package com.lordgasmic.==PACKAGE_NAME==.entity;
+package com.lordgasmic.feedingservice.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

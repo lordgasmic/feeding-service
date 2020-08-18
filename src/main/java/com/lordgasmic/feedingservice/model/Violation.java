@@ -1,4 +1,4 @@
-package com.lordgasmic.==PACKAGE_NAME==.model;
+package com.lordgasmic.feedingservice.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

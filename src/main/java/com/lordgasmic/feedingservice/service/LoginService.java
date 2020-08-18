@@ -1,8 +1,8 @@
-package com.lordgasmic.==PACKAGE_NAME==.service;
+package com.lordgasmic.feedingservice.service;
 
-import com.lordgasmic.==PACKAGE_NAME==.entity.UserEntity;
-import com.lordgasmic.==PACKAGE_NAME==.model.User;
-import com.lordgasmic.==PACKAGE_NAME==.repository.LoginRepository;
+import com.lordgasmic.feedingservice.entity.UserEntity;
+import com.lordgasmic.feedingservice.model.User;
+import com.lordgasmic.feedingservice.repository.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

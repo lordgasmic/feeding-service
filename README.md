@@ -1,1 +1,1 @@
-template-service
+feeding-service

@@ -1,7 +1,7 @@
-package com.lordgasmic.==PACKAGE_NAME==.controller;
+package com.lordgasmic.feedingservice.controller;
 
-import com.lordgasmic.==PACKAGE_NAME==.model.User;
-import com.lordgasmic.==PACKAGE_NAME==.service.LoginService;
+import com.lordgasmic.feedingservice.model.User;
+import com.lordgasmic.feedingservice.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
