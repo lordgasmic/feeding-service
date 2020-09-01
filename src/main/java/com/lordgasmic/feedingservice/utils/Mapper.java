@@ -14,7 +14,7 @@ public class Mapper {
     public static FeedingEntity toEntity(FeedRequest request) {
         FeedingEntity entity = new FeedingEntity();
 
-        LocalTime lt = LocalTime.of(request.getTimeHour(), request.getTimeMinute());
+        LocalTime lt = Jbom.buildLocalTime(request.getTimeHour(), request.getTimeMinute(), request.getMeridiem());
         LocalDateTime ldt = LocalDateTime.of(Jbom.convertDate(request.getDate()), lt);
         ZonedDateTime zdt = ZonedDateTime.of(ldt, ZoneId.of("America/New_York"));
 
