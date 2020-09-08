@@ -19,6 +19,10 @@ public class FeedingService {
         repository.save(Mapper.toEntity(request));
     }
 
+    public void putFeeds(List<FeedRequest> requests) {
+        requests.stream().map(Mapper::toEntity).forEach(repository::save);
+    }
+
     public List<FeedResponse> getFeeds() {
 //        repository;
         return null;

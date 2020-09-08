@@ -19,6 +19,11 @@ public class FeedingController {
         service.putFeed(request);
     }
 
+    @PutMapping("/api/v1/feeds")
+    public void feedings(@RequestBody final List<FeedRequest> requests) {
+        service.putFeeds(requests);
+    }
+
     @GetMapping("/api/v1/feeds")
     public List<FeedResponse> feeds() {
         return service.getFeeds();
