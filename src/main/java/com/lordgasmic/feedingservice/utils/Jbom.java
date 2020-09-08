@@ -13,6 +13,14 @@ public class Jbom {
     }
 
     public static LocalTime buildLocalTime(int timeHour, int timeMinute, Meridiem meridiem) {
+        if (timeHour == 12) {
+            if (meridiem == Meridiem.am) {
+                return LocalTime.of(0, timeMinute);
+            }
+
+            return LocalTime.of(timeHour, timeMinute);
+        }
+
         if (meridiem == Meridiem.am) {
             return LocalTime.of(timeHour, timeMinute);
         }
