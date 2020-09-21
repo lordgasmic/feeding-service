@@ -4,16 +4,16 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.Embeddable;
+import java.io.Serializable;
 import java.time.ZonedDateTime;
 
-@Entity(name = "feed_vw")
+@Embeddable
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class FeedingEntity {
+public class BottleEntityPK implements Serializable {
 
-    @Id
     private ZonedDateTime timestmp;
+    private int ordinal;
 }

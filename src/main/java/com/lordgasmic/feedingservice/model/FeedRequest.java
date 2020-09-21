@@ -2,6 +2,8 @@ package com.lordgasmic.feedingservice.model;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class FeedRequest {
 
@@ -9,10 +11,5 @@ public class FeedRequest {
     private int timeHour;
     private int timeMinute;
     private Meridiem meridiem;
-    private int given;
-    private int quantity;
-    private UnitOfMeasure givenUom;
-    private UnitOfMeasure quantityUom;
-    private boolean vitamin;
-    private String note;
+    private List<Bottle> bottles;
 }
