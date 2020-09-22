@@ -10,4 +10,4 @@ create table bottle (
 	constraint bottle_pk primary key (timestmp,ordinal)
 );
 create or replace view bottle_vw as select * from bottle;
-grant select, insert, update, delete on web.bottle_vw to 'web_appl'@'localhost';
+grant select, insert, update, delete on web.bottle_vw to 'web_appl'@'%';
