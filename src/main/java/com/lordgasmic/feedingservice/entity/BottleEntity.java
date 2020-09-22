@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 
-@Entity(name = "feed_vw")
+@Entity(name = "bottle_vw")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
