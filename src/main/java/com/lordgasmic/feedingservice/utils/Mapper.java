@@ -15,6 +15,8 @@ import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 public class Mapper {
     private Mapper(){}
 
@@ -26,13 +28,13 @@ public class Mapper {
         return entity;
     }
 
-    public static FeedResponse toFeedResponse(FeedingEntity entity) {
+    public static FeedResponse toFeedResponse(ZonedDateTime zdt, List<BottleEntity> entities) {
         FeedResponse response = new FeedResponse();
-        ZonedDateTime zdt = entity.getTimestmp();
         response.setTimeHour(zdt.getHour());
         response.setTimeMinute(zdt.getMinute());
         response.setMeridiem(zdt.getHour() < 12? Meridiem.am: Meridiem.pm);
         response.setDate(buildDate(zdt));
+        response.setBottles(entities.stream().map(Mapper::toBottle).collect(toList()));
 
         return response;
     }
@@ -79,5 +81,20 @@ public class Mapper {
         sb.append(zdt.getYear());
 
         return sb.toString();
+    }
+
+    private static Bottle toBottle(BottleEntity entity) {
+        Bottle bottle = new Bottle();
+        bottle.setGas(entity.isGas());
+        bottle.setVitamin(entity.isVitamin());
+        bottle.setProbiotic(entity.isProbiotic());
+        bottle.setGiven(entity.getGiven());
+        bottle.setGivenUom(entity.getGivenUom());
+        bottle.setQuantity(entity.getQuantity());
+        bottle.setQuantityUom(entity.getQuantityUom());
+        bottle.setNote(entity.getNote());
+        bottle.setOrdinal(entity.getPk().getOrdinal());
+
+        return bottle;
     }
 }
