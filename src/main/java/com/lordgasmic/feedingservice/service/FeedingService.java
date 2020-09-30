@@ -40,7 +40,7 @@ public class FeedingService {
     public List<FeedResponse> getFeeds() {
         Iterable<FeedingEntity> entities = feedingRepository.findAll();
         Map<ZonedDateTime, List<BottleEntity>> derp = StreamSupport.stream(entities.spliterator(), false)
-                                                        .map(entity -> bottleRepository.findByTimestmp(entity.getTimestmp()))
+                                                        .map(entity -> bottleRepository.findByPkTimestmp(entity.getTimestmp()))
                                                         .flatMap(Collection::stream)
                                                         .collect(Collectors.groupingBy(bottleEntity -> bottleEntity.getPk().getTimestmp()));
 

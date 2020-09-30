@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface BottleRepository extends CrudRepository<BottleEntity, BottleEntityPK> {
 
-    List<BottleEntity> findByTimestmp(ZonedDateTime timestmp);
+    List<BottleEntity> findByPkTimestmp(ZonedDateTime timestmp);
 }
