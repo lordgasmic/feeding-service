@@ -5,6 +5,8 @@ import com.lordgasmic.feedingservice.entity.BottleEntityPK;
 import com.lordgasmic.feedingservice.entity.FeedingEntity;
 import com.lordgasmic.feedingservice.model.Bottle;
 import com.lordgasmic.feedingservice.model.FeedRequest;
+import com.lordgasmic.feedingservice.model.FeedResponse;
+import com.lordgasmic.feedingservice.model.Meridiem;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -22,6 +24,17 @@ public class Mapper {
         entity.setTimestmp(buildZDT(request));
 
         return entity;
+    }
+
+    public static FeedResponse toFeedResponse(FeedingEntity entity) {
+        FeedResponse response = new FeedResponse();
+        ZonedDateTime zdt = entity.getTimestmp();
+        response.setTimeHour(zdt.getHour());
+        response.setTimeMinute(zdt.getMinute());
+        response.setMeridiem(zdt.getHour() < 12? Meridiem.am: Meridiem.pm);
+        response.setDate(buildDate(zdt));
+
+        return response;
     }
 
     public static List<BottleEntity> toBottleEntity(FeedRequest request) {
@@ -55,5 +68,16 @@ public class Mapper {
         ZonedDateTime zdt = ZonedDateTime.of(ldt, ZoneId.of("America/New_York"));
 
         return zdt;
+    }
+
+    private static String buildDate(ZonedDateTime zdt) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(zdt.getMonthValue());
+        sb.append("/");
+        sb.append(zdt.getDayOfMonth());
+        sb.append("/");
+        sb.append(zdt.getYear());
+
+        return sb.toString();
     }
 }
